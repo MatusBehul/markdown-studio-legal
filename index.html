@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown Studio for Confluence</title>
+  <meta name="description" content="How to use Markdown Studio: edit Confluence pages as Markdown, create pages from Markdown and import Obsidian vaults.">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="">
+    <a href="./">Markdown Studio</a>
+    <nav>
+      <a href="#support">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Markdown Studio for Confluence</h1>
+    <p class="lead">Edit any Confluence page as Markdown, paste Markdown as a real page, and import a whole Obsidian vault into a page tree.</p>
+
+    <h2 id="start">Getting started</h2>
+    <p>Install the app from the Atlassian Marketplace. There is nothing to set up afterwards: the app works in every space you can already see and edit, and every change is made as you, with your own Confluence permissions.</p>
+    <p>You'll find the app in two places:</p>
+    <ul>
+      <li>On any page, click <strong>Markdown</strong> under the page title to edit that page as Markdown. The same action is in the page's <strong>•••</strong> menu under <strong>Apps → Edit as Markdown</strong>.</li>
+      <li>In the top bar, open <strong>Apps → Markdown Studio</strong> to create a page from Markdown or import an Obsidian vault.</li>
+    </ul>
+
+    <h2 id="edit">Edit a page as Markdown</h2>
+    <p>The editor opens with the page's Markdown on the left and a live preview on the right. Change the text and click <strong>Save</strong>. The page gets a new version, so you can compare or restore it from the page history as usual.</p>
+    <h3>What happens to things Markdown can't express</h3>
+    <p>Macros, mentions, dates, status lozenges, emoji, layouts, text colors and tables with merged cells are kept. In the editor they show as small locked chips, such as <code>@Jane Doe</code> or <code>Jira issues</code>. Leave a chip where it is, move it, or delete it, and it is saved exactly as it was. Settings that wrap normal text, such as a layout's columns or a table's width, show as small gray labels. Keep the labels around the text they belong to.</p>
+    <p class="note">If someone else saves the page while you're editing, the app tells you instead of overwriting their change. Copy your Markdown, reload the page and try again.</p>
+
+    <h2 id="paste">Create a page from Markdown</h2>
+    <ol>
+      <li>Open <strong>Apps → Markdown Studio</strong> and stay on <strong>New page from Markdown</strong>.</li>
+      <li>Choose the space and, if you like, a parent page.</li>
+      <li>Paste or type Markdown. The preview shows the page exactly as it will be saved.</li>
+      <li>Check the title. It is taken from the front matter <code>title:</code> or the first top-level heading, and you can type your own.</li>
+      <li>Click <strong>Create page</strong>.</li>
+    </ol>
+    <p>Supported: GitHub-flavored Markdown, including tables, task lists, strikethrough and code blocks with a language. Callouts such as <code>&gt; [!NOTE]</code> become Confluence panels. Tick <strong>Obsidian syntax</strong> when the text comes from Obsidian: single line breaks are kept, <code>==highlights==</code> are highlighted, <code>%%comments%%</code> are left out, and <code>#tags</code> become page labels.</p>
+
+    <h2 id="import">Import an Obsidian vault</h2>
+    <ol>
+      <li>Zip your vault folder. On a Mac, right-click the folder and choose <strong>Compress</strong>. On Windows, right-click it and choose <strong>Send to → Compressed (zipped) folder</strong>.</li>
+      <li>Open <strong>Apps → Markdown Studio → Import an Obsidian vault</strong> and choose the zip.</li>
+      <li>Choose the space and a parent page. The vault is created under that page.</li>
+      <li>Click <strong>Check the vault</strong>. Nothing is written yet. The check lists how many pages and files will be created, pages that get a new title, and links or files it can't find.</li>
+      <li>Click <strong>Import</strong> and keep the tab open until it finishes. When it's done, <strong>Open the pages</strong> takes you to them.</li>
+    </ol>
+    <div class="table-wrap">
+      <table>
+        <tr><th>In Obsidian</th><th>In Confluence</th></tr>
+        <tr><td>Folders</td><td>Parent pages. A folder note (<code>Folder/Folder.md</code>, or <code>Folder.md</code> next to the folder) becomes the folder's page.</td></tr>
+        <tr><td><code>[[Wikilinks]]</code>, with <code>#headings</code> and <code>|aliases</code></td><td>Links to the imported pages</td></tr>
+        <tr><td><code>![[image.png]]</code> and other embedded files</td><td>Attachments shown on the page</td></tr>
+        <tr><td>Callouts such as <code>&gt; [!warning]</code></td><td>Panels: info, note, tip, warning, error or success. Folded callouts (<code>[!note]-</code>) become expands.</td></tr>
+        <tr><td><code>==Highlights==</code></td><td>Highlighted text</td></tr>
+        <tr><td><code>#tags</code> and front matter <code>tags:</code></td><td>Page labels</td></tr>
+      </table>
+    </div>
+    <h3>Good to know</h3>
+    <ul>
+      <li>Page titles must be unique in a Confluence space. If a note's title is already taken, the page gets its folder's name in brackets, or a number.</li>
+      <li>The <code>.obsidian</code> settings folder and other hidden files are skipped, and so are canvas and Excalidraw drawings.</li>
+      <li>If an import stops, for example because the tab was closed, choose the same zip, space and parent page again. The app offers to continue where it stopped, without making duplicate pages.</li>
+      <li>The zip is read in your browser. It is never uploaded anywhere except, page by page, to your Confluence site.</li>
+    </ul>
+
+    <h2 id="faq">Questions</h2>
+    <h3>Who can use the app?</h3>
+    <p>Everyone on a site where it's installed. People can only open, edit and create pages they could already open, edit and create in Confluence.</p>
+    <h3>Does the app send my content anywhere?</h3>
+    <p>No. The app runs on Atlassian's Forge platform and has no servers of its own. See the <a href="privacy.html">privacy policy</a>.</p>
+    <h3>Why did a warning appear above the preview?</h3>
+    <p>The app tells you when part of the Markdown can't become Confluence content, such as raw HTML (kept as a code block), a link Confluence rejects (kept as text), or a wikilink to a note that isn't in the vault. Everything else is saved.</p>
+    <h3>The app says it needs a subscription</h3>
+    <p>Sites with up to 10 users use the app for free. Larger sites need an active subscription. A site admin can start or renew it from the app's Marketplace listing or from <strong>Manage apps</strong> in Confluence's settings.</p>
+
+    <h2 id="support">Support</h2>
+    <p>Found a bug, or missing a feature? Use the <strong>Get support</strong> link on the app's Atlassian Marketplace listing. We answer within two business days, Central European Time.</p>
+    <p>Please include what you did, what you expected, and what happened instead. A screenshot helps. Don't send us page content you can't share.</p>
+  </main>
+
+  <footer>
+    Markdown Studio for Confluence · <a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms of service</a>
+  </footer>
+</body>
+</html>
